@@ -20,7 +20,7 @@ class DemoController {
 
     @BatchMapping(typeName = "Extension", field = "data")
     fun getExtensionData(extensionObjects: List<Extension>, context: GraphQLContext): Map<Extension, String> {
-        println("This function was called")
+        // This function gets called twice. Once for ObjectA and Object C. Is there a way for it to be only called once?
         return extensionObjects.associateWith { it.id }
     }
 }
