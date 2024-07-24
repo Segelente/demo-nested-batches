@@ -1,0 +1,29 @@
+type Query{
+    query: ReturnObject
+}
+type ReturnObject{
+    id: ID
+    header: [Header]
+}
+interface Header{
+    id: ID
+    description: String
+}
+interface Extension{
+    id: ID
+    data: String
+}
+type ObjectA implements Header & Extension{
+    id: ID
+    description: String
+    data: String
+}
+type ObjectB implements Header {
+    id: ID
+    description: String
+    objectC : [ObjectC ]
+}
+type ObjectC implements Extension{
+    id: ID
+    data: String
+}
